@@ -7,6 +7,7 @@ namespace Capstone_Xavier.Models
     {
         [Required]
         [MaxLength(15, ErrorMessage = "Username cannot be above 15 characters")]
+        [RegularExpression("([a-zA-Z0-9]{3,15})", ErrorMessage = "Only alphanumeric characters allowed")]
         public string username { get; set; }
         public int userValid = 0;
 

@@ -8,6 +8,7 @@ namespace Capstone_Xavier.Controllers
     using System.Collections.Generic;
     using System.Web.Mvc;
     using System.Web.Security;
+    using System.Text.RegularExpressions;
 
     public class HomeController : Controller
     {
@@ -28,6 +29,7 @@ namespace Capstone_Xavier.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Register(RegisterModel register) {
 
 
@@ -68,15 +70,31 @@ namespace Capstone_Xavier.Controllers
             else {//For if the modelstate isnt valid
                 if (register.username == null) {
                     register.userValid = 1;
+                    register.alertType = 1;
                 }
                 if (register.password == null) {
                     register.passValid = 1;
+                    register.alertType = 1;
                 }
                 if (register.email == null) {
                     register.emailValid = 1;
+                    register.alertType = 1;
                 }
-                register.alertType = 1;
-                return View(register);
+                if(register.username.Length > 15)
+                {
+                    register.userValid = 0;
+                    register.alertType = 4;
+                }
+
+                string pattern = "([a-zA-Z0-9]{3,15})";
+                if(Regex.Match(register.username, pattern).Value != register.username)
+                {
+                    register.userValid = 0;
+                    register.alertType = 5;
+                }
+
+                //register.alertType = 1;
+                    return View(register);
             }
 
         }
