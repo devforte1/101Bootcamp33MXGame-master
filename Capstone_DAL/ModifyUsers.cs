@@ -14,7 +14,7 @@ namespace Capstone_DAL
     /// </summary>
     public class ModifyUsers
     {
-        //string _connection = "Data Source=DESKTOP-H52G7QL\\SQLEXPRESS;Initial Catalog=Capstone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        // string _connection = "Data Source=DESKTOP-H52G7QL\\SQLEXPRESS;Initial Catalog=Capstone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private string _connection = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
 
         //Create: Used to add new users to the db. Takes in a username, password 
