@@ -22,12 +22,12 @@
         <button onclick="dropDown()" class="dropBtn">More</button>
         <div id="myDropdown" class="dropdown-item">
             @Html.ActionLink("Home", "Users", "Home")
+            @Html.ActionLink("FAQS", "FAQS", "Home")
+            @Html.ActionLink("Logout", "Logout", "Home")
             @if (Session["Role"].ToString() == "1" || Session["Role"].ToString() == "2")
             {
                 @Html.ActionLink("Admin", "Admin", "Admin");
             }
-            @Html.ActionLink("FAQS", "FAQS", "Home")
-            @Html.ActionLink("Logout", "Logout", "Home")
         </div>
     </div>
     @using (Html.BeginForm("UserInfo", "User", Model, FormMethod.Post))
