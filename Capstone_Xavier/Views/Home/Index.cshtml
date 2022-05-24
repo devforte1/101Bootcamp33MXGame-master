@@ -20,8 +20,12 @@
         <div class="nav-side">
             <!--<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>-->
 
-            <button class="btn">@Html.ActionLink("Register","Register", "Home")</button>
-            <button class="btn">@Html.ActionLink("Login", "Login", "Home")</button>
+            <a href="@Url.Action("Register", "Home")">
+                <button class="btn">Register</button>
+            </a>
+            <a href="@Url.Action("Login", "Home")">
+                <button class="btn">Login</button>
+            </a>
             <br>
 
             <!--Dropdown menu-->
