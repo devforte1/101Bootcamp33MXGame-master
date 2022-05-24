@@ -15,6 +15,7 @@ namespace Capstone_Xavier.Models
         public bool changeRole { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+
         [Compare("password",ErrorMessage ="Password don't match")]
         public string confirmPassword { get; set; }
         public string email { get; set; }

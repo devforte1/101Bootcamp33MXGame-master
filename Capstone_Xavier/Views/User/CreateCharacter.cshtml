@@ -14,7 +14,7 @@
     <div style="height: 100px; width: 250px; position: absolute; top: 15vw;">
         <button type="submit" class="btn-user" style="top: -15px; position: relative">Get Class Info</button>
         <label style="display: inline-block;position: absolute; right: -5vw; top: -3vw">Choose a class and click the button to see their stats.</label>
-        @Html.DropDownListFor(Ajax => Ajax.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control", @type="submit", @role="button" })
+        @Html.DropDownListFor(Ajax => Ajax.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control", @type = "submit", @role = "button" })
     </div>
 
     <div id="Classes" class="info-box-alt">
@@ -24,13 +24,16 @@
 
 @using (Html.BeginForm("CreateNewCharacter", "User"))
 {
+   
     <div class="nav-side">
         <div class="input-list">
             <div class="input">
                 <label>Character Name</label>
                 <span class="icon-input"></span>
-                @Html.EditorFor(CharacterModel => CharacterModel.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter First Name" } })
 
+                @Html.EditorFor(CharacterModel => CharacterModel.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter First Name" } })
+                @Html.ValidationMessageFor(CharacterModel => CharacterModel.name, "", new { @class = "text-danger" })
+                
             </div>
 
             <br>
