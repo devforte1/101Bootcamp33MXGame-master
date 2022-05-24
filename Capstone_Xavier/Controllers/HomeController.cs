@@ -102,7 +102,7 @@ namespace Capstone_Xavier.Controllers
             user = data.FindUser(user);
             if (ModelState.IsValid)
             {
-                if (user.Username == null )
+                if (user == null )
                 {
                     login.alertType = 2;
                     return View(login);
