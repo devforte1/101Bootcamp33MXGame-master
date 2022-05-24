@@ -24,7 +24,7 @@ namespace Capstone_Xavier
         {
             string Username = Session["Username"] as string;
             string Sessroles = Session["Role"] as string;
-            string UserID = Session["UserID"] as string;
+            //string UserID = Session["UserID"].ToString() as string;
             UserModel user = Session["User"] as UserModel;
             //string CurrentCharacter = Session["Character"] as string;
             CharacterModel characterModel = Session["CurrentCharacter"] as CharacterModel;
