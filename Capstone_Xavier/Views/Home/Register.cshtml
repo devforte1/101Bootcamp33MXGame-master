@@ -9,9 +9,9 @@
     <div class="dropdown">
         <button onclick="dropDown()" class="dropBtn">More</button>
         <div id="myDropdown" class="dropdown-item">
-            <a>@Html.ActionLink("FAQS", "FAQS", "Home")</a>
-            <a>@Html.ActionLink("Home", "Index", "Home")</a>
-            <a>@Html.ActionLink("Login", "Login", "Home")</a>
+            @Html.ActionLink("Login", "Login", "Home")
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("FAQS", "FAQS", "Home")
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
         <div class="input">
             <label>Username</label>
             <span class="icon-input"></span>
-            @Html.EditorFor(RegisterModel => RegisterModel.username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter First Name" } })
+            @Html.EditorFor(RegisterModel => RegisterModel.username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter UserName" } })
             @if (Model.userValid == 1)
             {
                 @Html.ValidationMessageFor(RegisterModel => RegisterModel.username, null, new { @class = "validation" })

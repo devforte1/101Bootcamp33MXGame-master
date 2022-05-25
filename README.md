@@ -8,4 +8,4 @@ STEPS FOR INSTALLING
 2. Could not find a part of the path ... bin\roslyn\csc.exe might occur when running. https://stackoverflow.com/questions/58154233/could-not-find-file-bin-roslyn-csc-exe
 
 
-// comments
+3. new comment example git

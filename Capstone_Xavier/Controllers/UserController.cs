@@ -53,7 +53,6 @@ namespace Capstone_Xavier.Controllers
 
                 data.UpdateUserInfo(map.UserModel_To_BO(user));
                 Session["User"] = user;
-                //TODO- update user info
             }
             return View((UserModel)Session["User"]);
         }
