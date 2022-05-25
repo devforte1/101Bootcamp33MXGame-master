@@ -12,9 +12,9 @@
     <div class="dropdown">
         <button onclick="dropDown()" class="dropBtn">More</button>
         <div id="myDropdown" class="dropdown-item">
-            <a>@Html.ActionLink("Register", "Register", "Home")</a>
-            <a>@Html.ActionLink("Home", "Index", "Home")</a>
-            <a href="#">@Html.ActionLink("FAQS", "FAQS", "Home")</a>
+            @Html.ActionLink("Register", "Register", "Home")
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("FAQS", "FAQS", "Home")
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
     else if (Model.alertType == 2)
     {
         <div class="alert alert-warning alert-dismissible fade show">
-            Username and password fields are required.
+            Unable to authenticate user. Please try again.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
         </div>
     }
