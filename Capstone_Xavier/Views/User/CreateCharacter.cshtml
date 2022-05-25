@@ -14,7 +14,7 @@
     <div style="height: 100px; width: 250px; position: absolute; top: 15vw;">
         <button type="submit" class="btn-user" style="top: -15px; position: relative">Get Class Info</button>
         <label style="display: inline-block;position: absolute; right: -5vw; top: -3vw">Choose a class and click the button to see their stats.</label>
-        @Html.DropDownListFor(Ajax => Ajax.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control", @type = "submit", @role = "button" })
+        @Html.DropDownListFor(CharacterModel => CharacterModel.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control", @type="submit", @role="button" })
     </div>
 
     <div id="Classes" class="info-box-alt">
@@ -41,7 +41,7 @@
                 <label>Class</label>
                 <span class="icon-input"></span>
 
-                @Html.DropDownListFor(Model => Model.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control" })
+                @Html.DropDownListFor(CharacterModel => CharacterModel.classID, new SelectList(Model.classes, "classID", "className"), new { @id = "classID", @class = "form-control" })
 
             </div>
         </div>

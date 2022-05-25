@@ -79,7 +79,7 @@ namespace Capstone_Xavier.Controllers
             }
             
             //For if the character isnt a magic user. Magic cost health if cast.
-            if (magica == 0 && weapon != null)
+            if (magica == 0 && weapon[3] != 0)
             {
                 health = health + magicaMod;
                 story = "<br><div style=' width: 10 %; height: auto; display: block; float: left; margin: 3px; padding: 3px;'> Due to your lack of magical experience you to use your own life energy to cast the spell costing you, " + magicaMod.ToString() + " Damge</div><br>";
@@ -141,7 +141,7 @@ namespace Capstone_Xavier.Controllers
             }
             else {
                 if (monster.danger > player.level) {
-                    damage--;
+                    
                     monsterDamage += (int)(monsterDamage * (.2));
                 }
             }
@@ -192,7 +192,8 @@ namespace Capstone_Xavier.Controllers
                 story = story + "<br><div style=' width: 10 %; height: auto; display: block; float: left; margin: 3px; padding: 3px;'> The beast tries to get defensive protecting its vital spots. Not attacking it takes " + 
                         damage.ToString() + " damage but manages to take this time to heal a small amount of health.</div><br>";
             }
-
+            game.character.stamina = _stamina;
+            Session["Game"] = game;
             var _return = new { action = endID, print = story, monsterH = mHealth, playerH = health, Magica = _magica, Stamina = _stamina };
 
             return Json(_return, JsonRequestBehavior.AllowGet);
