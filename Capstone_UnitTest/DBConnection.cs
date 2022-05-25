@@ -38,12 +38,16 @@
 //        }
 
 //        //Testing purposes only. Used to delete the entered value from test. 
-//        private void DeleteTestError(string errorName) {
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//        private void DeleteTestError(string errorName)
+//        {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
 
-//                    using (SqlCommand command = new SqlCommand("SP_RemoveError", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_RemoveError", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
@@ -55,7 +59,9 @@
 //                    connection.Close();
 //                    connection.Dispose();
 //                }
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //            }
@@ -63,9 +69,10 @@
 
 //        //ModifyUsers class connections testing.
 
-//            //Create test: Testing the ability to add new users. Should always pass.
+//        //Create test: Testing the ability to add new users. Should always pass.
 //        [TestMethod]
-//        public void CanAddUser() {
+//        public void CanAddUser()
+//        {
 //            string testUsername = "User";
 //            string testPassword = "Password";
 //            string testEmail = "Email";
@@ -86,11 +93,12 @@
 //            _user.RemoveUser(_test.UserID);
 //        }
 
-//            //Read test: Testing the ability to pull and read data from the Users table.
+//        //Read test: Testing the ability to pull and read data from the Users table.
 //        [TestMethod]
-//        public void CandReadUser() {
+//        public void CandReadUser()
+//        {
 //            ModifyUsers _user = new ModifyUsers();
-//            UsersDO _test = new UsersDO() ;
+//            UsersDO _test = new UsersDO();
 //            string test;
 //            _test.Username = "User1";
 //            _test.Password = "Password";
@@ -105,7 +113,8 @@
 //        }
 
 //        [TestMethod]
-//        public void CanFindUsername() {
+//        public void CanFindUsername()
+//        {
 //            ModifyUsers _user = new ModifyUsers();
 
 //            UsersDO _test = new UsersDO();
@@ -122,9 +131,10 @@
 //            _user.RemoveUser(_test.UserID);
 //        }
 
-//            //Update test: Testing the ability to update User info 
+//        //Update test: Testing the ability to update User info 
 //        [TestMethod]
-//        public void CanUpdateUser() {
+//        public void CanUpdateUser()
+//        {
 //            string testName = "Test";
 //            string testPass = "Pass";
 //            string testEmail = "Email";
@@ -145,7 +155,8 @@
 //        }
 
 //        [TestMethod]
-//        public void CanChangeRole() {
+//        public void CanChangeRole()
+//        {
 //            ModifyUsers user = new ModifyUsers();
 //            UsersDO _user = new UsersDO();
 //            _user.Username = "Test";
@@ -159,16 +170,17 @@
 //            user.RemoveUser(_user.UserID);
 //        }
 
-//            //Delete test: Testing the ability to remove a existing user from the Users table.
+//        //Delete test: Testing the ability to remove a existing user from the Users table.
 //        [TestMethod]
-//        public void CanRemoveUser() {
+//        public void CanRemoveUser()
+//        {
 //            ModifyUsers _user = new ModifyUsers();
 //            UsersDO _test = new UsersDO();
 //            _test.Username = "Test";
 //            _test.Password = "Pass";
 //            //creates a new users for testing purposes
 //            _user.AddUser(_test);
-//            _test = _user.GetUser("Test","Pass");
+//            _test = _user.GetUser("Test", "Pass");
 
 //            bool success = _user.RemoveUser(_test.UserID);
 
@@ -177,23 +189,25 @@
 
 //        //ModifyCharacters class connection testing
 
-//            //Create test: Testing the ability to create a new character and add it to the database.
+//        //Create test: Testing the ability to create a new character and add it to the database.
 //        [TestMethod]
-//        public void CanAddCharacter() {
+//        public void CanAddCharacter()
+//        {
 //            CharacterDO _character = new CharacterDO();
 //            ModifyCharacters _test = new ModifyCharacters();
 //            _character.Name = "Test";
 //            _character.Class = 1;
-            
+
 //            bool success = _test.AddCharacter(_character, 2);
 
 //            Assert.IsTrue(success);
 //            RemoveTestCharacter(_character.Name);
 //        }
 
-//            //Read test: Testing the ability to grab one or more characters from the database.
+//        //Read test: Testing the ability to grab one or more characters from the database.
 //        [TestMethod]
-//        public void CanReadCharacter() {
+//        public void CanReadCharacter()
+//        {
 //            ModifyCharacters _character = new ModifyCharacters();
 //            CharacterDO _test = new CharacterDO();
 //            int id;
@@ -209,7 +223,8 @@
 //        }
 
 //        [TestMethod]
-//        public void CanReadCharacterList() {
+//        public void CanReadCharacterList()
+//        {
 //            ModifyCharacters _character = new ModifyCharacters();
 //            CharacterDO _test = new CharacterDO();
 //            _test.Name = "Test";
@@ -223,7 +238,8 @@
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 //            Assert.IsTrue(success);
@@ -231,24 +247,26 @@
 //            RemoveTestCharacter(_test.Name);
 //        }
 
-//            //Update test: testing the ability to updatea character info in the datebase
+//        //Update test: testing the ability to updatea character info in the datebase
 //        [TestMethod]
-//        public void CanUpdateCharacter() {
+//        public void CanUpdateCharacter()
+//        {
 //            ModifyCharacters _character = new ModifyCharacters();
 //            CharacterDO _test = new CharacterDO();
 //            _test.Name = "Test";
 //            _test.Class = 0;
 
-//            _character.AddCharacter(_test,0);
+//            _character.AddCharacter(_test, 0);
 //            bool success = _character.UpdateCharacterData(_test);
 
 //            Assert.IsTrue(success);
 //            RemoveTestCharacter(_test.Name);
 //        }
 
-//            //Delete test: Testing the ability to delete characters.
+//        //Delete test: Testing the ability to delete characters.
 //        [TestMethod]
-//        public void CanRemoveCharacter() {
+//        public void CanRemoveCharacter()
+//        {
 //            ModifyCharacters _character = new ModifyCharacters();
 //            CharacterDO _test = new CharacterDO();
 //            _test.Name = "Test";
@@ -262,20 +280,26 @@
 //            Assert.IsTrue(success);
 //        }
 
-//            //Testing purposes only. Gets the character ID.
-//        private int GetTestCharacterID(string characterName) {
+//        //Testing purposes only. Gets the character ID.
+//        private int GetTestCharacterID(string characterName)
+//        {
 //            int _returnInt = 0;
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
-//                    using (SqlCommand command = new SqlCommand("SP_GetTestCharacterID", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_GetTestCharacterID", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
 //                        //Parameters: _characterName(NVARCHAR(200)
 //                        command.Parameters.AddWithValue("@parm_characterName", SqlDbType.NVarChar).Value = characterName;
-//                        using (SqlDataReader reader = command.ExecuteReader()) {
-//                            while (reader.Read()) {
+//                        using (SqlDataReader reader = command.ExecuteReader())
+//                        {
+//                            while (reader.Read())
+//                            {
 //                                _returnInt = (int)reader["character_ID"];
 //                            }
 //                        }
@@ -284,7 +308,9 @@
 //                    connection.Dispose();
 //                }
 //                return _returnInt;
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //                return _returnInt;
@@ -292,12 +318,16 @@
 
 //        }
 
-//            //Testing purposes only. Removes the test value character(s) from the database.
-//        private void RemoveTestCharacter(string characterName) {
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//        //Testing purposes only. Removes the test value character(s) from the database.
+//        private void RemoveTestCharacter(string characterName)
+//        {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
-//                    using (SqlCommand command = new SqlCommand("SP_RemoveTestCharacters", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_RemoveTestCharacters", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
@@ -308,7 +338,9 @@
 //                    connection.Close();
 //                    connection.Dispose();
 //                }
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //            }
@@ -316,20 +348,22 @@
 
 //        //ModifyInventories class connection testing
 
-//            //Create test: Testing the ability to add new inventory
+//        //Create test: Testing the ability to add new inventory
 //        [TestMethod]
-//        public void CanAddToInventory() {
+//        public void CanAddToInventory()
+//        {
 //            ModifyInventories _inventory = new ModifyInventories();
-//            bool success = _inventory.AddToInventory(2,0);
+//            bool success = _inventory.AddToInventory(2, 0);
 
 //            Assert.IsTrue(success);
 
 //            _inventory.ClearCharacterInventory(24);
 //        }
 
-//            //Read test: Testing the ability to get the character inventory.
+//        //Read test: Testing the ability to get the character inventory.
 //        [TestMethod]
-//        public void CanGetInventory() {
+//        public void CanGetInventory()
+//        {
 //            ModifyInventories _inventory = new ModifyInventories();
 //            bool success;
 
@@ -340,7 +374,8 @@
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 //            Assert.IsTrue(success);
@@ -348,9 +383,10 @@
 //            _inventory.ClearCharacterInventory(2);
 //        }
 
-//            //Delete test: Testing the ability remove item(s) from character inventory
+//        //Delete test: Testing the ability remove item(s) from character inventory
 //        [TestMethod]
-//        public void CanClearInventory() {
+//        public void CanClearInventory()
+//        {
 //            ModifyInventories _inventory = new ModifyInventories();
 
 //            bool success = _inventory.ClearCharacterInventory(24);
@@ -359,7 +395,8 @@
 //        }
 
 //        [TestMethod]
-//        public void CanRemoveItem() {
+//        public void CanRemoveItem()
+//        {
 //            ModifyInventories _inventory = new ModifyInventories();
 
 //            _inventory.AddToInventory(24, 0);
@@ -370,21 +407,27 @@
 //        }
 
 //        //Testing purposes only. Gets a specific inventory ID
-//        private int GetInventoryID(int characterID, int itemID) {
+//        private int GetInventoryID(int characterID, int itemID)
+//        {
 //            int _returnInt = 0;
 
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
-//                    using (SqlCommand command = new SqlCommand("SP_GetInventoryID", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_GetInventoryID", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
 //                        //Parameters: _characterID(INT), _itemID(INT)
 //                        command.Parameters.AddWithValue("@parm_characterID", SqlDbType.Int).Value = characterID;
 //                        command.Parameters.AddWithValue("@parm_itemID", SqlDbType.Int).Value = itemID;
-//                        using (SqlDataReader reader = command.ExecuteReader()) {
-//                            while (reader.Read()) {
+//                        using (SqlDataReader reader = command.ExecuteReader())
+//                        {
+//                            while (reader.Read())
+//                            {
 //                                _returnInt = (int)reader["Inventory_ID"];
 //                            }
 //                        }
@@ -393,7 +436,9 @@
 //                    connection.Dispose();
 //                }
 //                return _returnInt;
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //                return 0;
@@ -404,7 +449,8 @@
 
 //        //Read test: Testing the ability to grab regions.
 //        [TestMethod]
-//        public void CanGetRegionsList() {
+//        public void CanGetRegionsList()
+//        {
 //            ModifyRegions _region = new ModifyRegions();
 //            bool success;
 
@@ -414,7 +460,8 @@
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 
@@ -423,9 +470,10 @@
 
 //        //ModifyClass class connection testing.
 
-//                //Read test: Testing the ability to get class(es) from the database.
+//        //Read test: Testing the ability to get class(es) from the database.
 //        [TestMethod]
-//        public void CanGetClassList() {
+//        public void CanGetClassList()
+//        {
 //            ModifyClass _class = new ModifyClass();
 //            bool success;
 
@@ -434,19 +482,21 @@
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 
 //            Assert.IsTrue(success);
 //        }
 
-      
+
 //        //ModifyMonsters class connection testing
 
-//            //Create test: Testing the ability to add new monsters to the database.
+//        //Create test: Testing the ability to add new monsters to the database.
 //        [TestMethod]
-//        public void CanAddMonster() {
+//        public void CanAddMonster()
+//        {
 //            ModifyMonsters _monster = new ModifyMonsters();
 //            MonsterDO _test = new MonsterDO();
 //            _test.monsterName = "Test";
@@ -464,7 +514,8 @@
 
 //        //Read test: Testing the ability to get monster(s) from the database.
 //        [TestMethod]
-//        public void CanGetMonsters() {
+//        public void CanGetMonsters()
+//        {
 //            ModifyMonsters _monster = new ModifyMonsters();
 //            MonsterDO _test = new MonsterDO();
 //            bool success;
@@ -481,7 +532,8 @@
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 
@@ -492,17 +544,19 @@
 //        }
 
 //        [TestMethod]
-//        public void CanGetMonstersByDanger() {
+//        public void CanGetMonstersByDanger()
+//        {
 //            ModifyMonsters _monster = new ModifyMonsters();
 //            bool success;
 
-//            List<MonsterDO> _test = _monster.GetMonstersByDanger(0,1);
+//            List<MonsterDO> _test = _monster.GetMonstersByDanger(0, 1);
 
 //            if (_test.Count >= 1)
 //            {
 //                success = true;
 //            }
-//            else {
+//            else
+//            {
 //                success = false;
 //            }
 
@@ -510,9 +564,10 @@
 //        }
 
 
-//            //Update test: Testing the ability to update monsters.
+//        //Update test: Testing the ability to update monsters.
 //        [TestMethod]
-//        public void CanUpdateMonster() {
+//        public void CanUpdateMonster()
+//        {
 //            ModifyMonsters _monster = new ModifyMonsters();
 //            MonsterDO _test = new MonsterDO();
 //            _test.monsterName = "Test";
@@ -533,7 +588,8 @@
 
 //        //Delete test: Testing the ability to remove monster(s) from the database
 //        [TestMethod]
-//        public void CanRemoveMonster() {
+//        public void CanRemoveMonster()
+//        {
 //            ModifyMonsters _monster = new ModifyMonsters();
 //            MonsterDO _test = new MonsterDO();
 //            _test.monsterName = "Test";
@@ -551,13 +607,17 @@
 //        }
 
 //        //Testing purposes only. Gets the test monsters id.
-//        private int GetTestMonsterID(string monsterName) {
+//        private int GetTestMonsterID(string monsterName)
+//        {
 //            int _returnInt = 0;
 
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
-//                    using (SqlCommand command = new SqlCommand("SP_GetTestMonsterID", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_GetTestMonsterID", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
@@ -575,7 +635,9 @@
 //                    connection.Dispose();
 //                }
 //                return _returnInt;
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //                return _returnInt;
@@ -583,11 +645,15 @@
 //        }
 
 //        //Testing purposes only. Removes all testing monsters from the database.
-//        private void RemoveTestMonster(string monsterName) {
-//            try {
-//                using (SqlConnection connection = new SqlConnection(_connection)) {
+//        private void RemoveTestMonster(string monsterName)
+//        {
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(_connection))
+//                {
 //                    connection.Open();
-//                    using (SqlCommand command = new SqlCommand("SP_RemoveTestMonster", connection)) {
+//                    using (SqlCommand command = new SqlCommand("SP_RemoveTestMonster", connection))
+//                    {
 //                        command.CommandType = CommandType.StoredProcedure;
 //                        command.CommandTimeout = 10;
 
@@ -598,7 +664,9 @@
 //                    connection.Close();
 //                    connection.Dispose();
 //                }
-//            } catch (Exception ex) {
+//            }
+//            catch (Exception ex)
+//            {
 //                LoggingError error = new LoggingError();
 //                error.LogError(ex.ToString(), ex.Message, ex.Source.ToString());
 //            }

@@ -17,9 +17,9 @@
         </div>
         <div class="container-bar" style="width: 60%;  float: right; vertical-align: middle;">
 
-            <progress id="Health" class="Health" value="0" max="200"></progress>
-            <progress id="Stamina" value="20" max="60"></progress>
-            <progress id="Magica" value="10" max="60"><text>Magica</text></progress>
+            <meter id="Health" class="Health" value="150" min="0" max="150"></meter>
+            <meter id="Stamina" value="100" min="0" max="100"></meter>
+            <meter id="Magica" value="0" min="0" max="60"><text>Magica</text></meter>
         </div>
     </div>
     <!--The character bag items. Refreshed every time the bag button is clicked.-->
@@ -35,7 +35,7 @@
         <h6 style=" display: block; width: 100%; float: left; font-size: x-large; text-align: center" id="monsterName">Monster name</h6>
     </div>
     <div class="container-bar" style="width: 60%;  float: right; vertical-align: middle;">
-        <progress id="MHealth" class="Health" value="0" max="200"></progress>
+        <meter id="MHealth" class="Health" value="100" min="0" max="200"></meter>
     </div>
 </div>
 
@@ -45,7 +45,7 @@
     @{
         foreach (RegionModel region in Model.regions)
         {
-            <div class="c-info" id="region" value="@region.regionID" style="cursor: pointer;" role="button" onclick="Travel(@region.regionID, 1)">@region.regionName</div>
+            <button class="c-info" id="region" value="@region.regionID" style="cursor: pointer;" type="button" onclick="Travel(@region.regionID, 1)">@region.regionName</button>
         }
     }
 
@@ -53,7 +53,7 @@
 
 <!--The default buttons. Showed automatically-->
 <div id="defaultBtn" class="btn-block">
-    <button class="btn-user" id="Travel">Travel</button>
+    <button class="btn-user" id="Travel" onclick="TravelBtns()">Travel</button>
     <button class="btn-user" id="Look" onclick="Travel(0,2)">Look Around</button>
     <button class="btn-user" onclick="location.href='@Url.Action("Users", "Home")'">Exit</button>
 </div>
@@ -68,7 +68,7 @@
 
 <!--For combat events only. Shows during monster events-->
 <div id="ComabatBtn" class="btn-block" style="display: none;">
-    <button class="btn-user" id="Travel" onclick="combatAction(0)">Attack</button>
+    <button class="btn-user" onclick="combatAction(0)">Attack</button>
     <button class="btn-user" onclick="combatAction(1)">Defend</button>
     <button class="btn-user" onclick="combatAction(2)">Flee</button>
     <button class="btn-user" onclick="location.href='@Url.Action("Users", "Home")'">Exit</button>
@@ -88,7 +88,7 @@
 
 
 <script type="text/javascript">
-    //For showing the available regions to travel to
+    @*  //For showing the available regions to travel to
     $(document).ready(function () {
 
         $('#Travel').click(function () {
@@ -101,7 +101,16 @@
             }
 
         });
-    });
+    });*@
+    const TravelBtns = () => {
+        var x = document.querySelector("#list-regions")
+        if (x.style.display === "none") {
+            x.style.display = "inline-block";
+        }
+        else {
+            x.style.display = "none";
+        }
+    }
 
     //called on load. used to load character data.
     document.addEventListener("DOMContentLoaded", function () {
@@ -233,6 +242,7 @@
             }
         });
     }
+
 
     //###############################/*Combat Actions*/########################
     function combatAction(actionID) {

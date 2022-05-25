@@ -22,7 +22,7 @@ namespace Capstone_Xavier.Models
 
         public int[] equiptedWeapon { get; set; }
 
-        public int[] usableWeapons { get; set; }
+        public int[] usableWeapons { get; set; } = { };
 
         public bool initiave { get; set; }
 

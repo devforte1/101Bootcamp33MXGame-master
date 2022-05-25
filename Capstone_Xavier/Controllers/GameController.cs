@@ -117,7 +117,7 @@ namespace Capstone_Xavier.Controllers
             int maxDanger = (currentRegion.danger + destinationRegion.danger) / 2;
             int minDanger = maxDanger - 3;
             Random rand = new Random();
-            Random initiative = new Random();
+            Random initiativeRand = new Random();
             MonsterModel _monster;
             GameModel game = (GameModel)Session["Game"];
 
@@ -128,8 +128,9 @@ namespace Capstone_Xavier.Controllers
             List<MonsterModel> monster = map.MonsterBO_To_List(data.GetMonstersByDanger(maxDanger, minDanger));
             _monster = monster[rand.Next(monster.Count )];
             game.monster = _monster;
+            var initiative = initiativeRand.Next(21);
 
-            if (initiative.Next(21) > 15)
+            if (initiative > 15)
             {
                 _returnString = "<br><div style=' width: 10 %; height: auto; display: block; float: left; margin: 3px; padding: 3px; '>You encountered a <strong>" + _monster.monsterName + "</strong> You seem to have caught the monster off guard. What will you do?</div><br>";
                 game.initiave = true;
@@ -417,8 +418,8 @@ namespace Capstone_Xavier.Controllers
                             }
                         }
 
-                        game.equiptedWeapon = new int[] { item.weaponType, item.damageMod, item.healthMod, item.magicaMod, item.staminaMod };
-                        game.character.damage = game.character.damage + item.damageMod;
+                        game.equiptedWeapon = new int[] { item.weaponType, damageMod, item.healthMod, item.magicaMod, item.staminaMod };
+                        game.character.damage = game.character.damage + damageMod;
                     }
                     
                 }
